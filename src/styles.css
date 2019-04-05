@@ -1,1 +1,24 @@
 /* Add application styles & imports to this file! */
+
+body {
+  text-align: center;
+}
+
+button {
+  background-color: #1976d2;
+  border: none;
+  border-radius: 30px;
+  padding: 10px 50px;
+  color: #FFF;
+  text-transform: uppercase;
+  cursor: pointer;
+  outline: none;
+}
+button:hover {
+  background-color: #0e4174;
+  transition: 500ms all ease;
+}
+p {
+  color: #111111;
+  line-height: 20px;
+}
