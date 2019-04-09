@@ -1,28 +1,26 @@
 import { Component, Input } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { JokeService } from '../service/joke.service';
+import { Joke } from '../models/joke';
 
 @Component({
   selector: 'joke',
   templateUrl: './joke.component.html'
 })
 export class JokeComponent  {
-  url = 'https://api.chucknorris.io/jokes/random';
-  joke = Joke;
+  joke: Joke;
 
-  constructor(private http: HttpClient) {}
-
-  getApplicationProgrammingInterface() {
-    return this.http.get<Joke>(this.url);
+  constructor(private jokeService: JokeService) {
+    this.showApplicationProgrammingInterface();
   }
 
-  showApplicationProgrammingInterface(response: Joke) {
+  showApplicationProgrammingInterface() {
+    this.jokeService.getApplicationProgrammingInterface()
+      .subscribe((response: Joke) => {
+        this.joke = response;
+      });
   }
 
 }
 
-export class Joke {
-  icon_url: string;
-  id: string;
-  url: string;
-  value: string;
-}
