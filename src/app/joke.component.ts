@@ -1,6 +1,5 @@
 import { Component, Input } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
 
 @Component({
   selector: 'joke',
@@ -8,21 +7,15 @@ import { Observable } from 'rxjs';
 })
 export class JokeComponent  {
   url = 'https://api.chucknorris.io/jokes/random';
-  joke: Joke;
+  joke = Joke;
 
-  constructor(private http: HttpClient) {
-    this.showApplicationProgrammingInterface();
-  }
+  constructor(private http: HttpClient) {}
 
-  getApplicationProgrammingInterface(): Observable<Joke> {
+  getApplicationProgrammingInterface() {
     return this.http.get<Joke>(this.url);
   }
 
-  showApplicationProgrammingInterface() {
-    this.getApplicationProgrammingInterface()
-      .subscribe((response: Joke) => {
-        this.joke = response;
-      });
+  showApplicationProgrammingInterface(response: Joke) {
   }
 
 }
