@@ -6,7 +6,8 @@ import { Joke } from '../models/joke';
 
 @Component({
   selector: 'joke',
-  templateUrl: './joke.component.html'
+  templateUrl: './joke.component.html',
+  providers: [ JokeService ]
 })
 export class JokeComponent  {
   joke: Joke;
